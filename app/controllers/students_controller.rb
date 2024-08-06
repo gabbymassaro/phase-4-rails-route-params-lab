@@ -2,8 +2,8 @@ class StudentsController < ApplicationController
 
   def index
     if params[:name]
-      students = Student.where("lower(last_name) = ?", params[:name].downcase)
-      .or(Student.where("lower(first_name) = ?", params[:name].downcase))
+      students = Student.where("lower(last_name) = ?", params[:name])
+      .or(Student.where("lower(first_name) = ?", params[:name]))
     else
       students = Student.all
     end
